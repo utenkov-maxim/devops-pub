@@ -1,7 +1,7 @@
 FROM ubuntu:18.04
 MAINTAINER d.kleva <xxx@yyy.ru>
 RUN apt-get update
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y -q python-all python-pip
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y -q python-all python-pip git
 
 WORKDIR /tmp
 RUN git clone https://github.com/utenkov-maxim/devops-pub.git
