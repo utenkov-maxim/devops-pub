@@ -1,18 +1,17 @@
 FROM ubuntu:18.04
-#RUN apt-get update
-#RUN apt-get install python-all python-pip -y
+MAINTAINER d.kleva <xxx@yyy.ru>
+RUN apt-get update
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y -q python-all python-pip
 
-EXPOSE 5000
-
-WORKDIR /tmp/
 RUN git clone https://github.com/utenkov-maxim/devops-pub.git
 RUN cp /tmp/devops-pub/work7/task1/app.py /opt/webapp
 RUN cp /tmp/devops-pub/work7/task1/requirements.txt /tmp
 
-RUN pip install -qr requirements.txt
-
 WORKDIR /opt/webapp
+EXPOSE 5000
+CMD ["python", "app.py"]
 
-RUN app.py
 
-CMD [RUN DEBIAN_FRONTEND=noninteractive apt-get install -y -q python-all python-pip]
+#ADD ./webapp/requirements.txt /tmp/requirements.txt
+#RUN pip install -qr /tmp/requirements.txt
+#ADD ./webapp /opt/webapp/
