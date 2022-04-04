@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
-RUN apt-get update
-RUN apt-get install python-all python-pip -y
+#RUN apt-get update
+#RUN apt-get install python-all python-pip -y
 
 EXPOSE 5000
 
@@ -15,4 +15,4 @@ WORKDIR /opt/webapp
 
 RUN app.py
 
-[RUN DEBIAN_FRONTEND=noninteractive apt-get install -y -q python-all python-pip]
+CMD [RUN DEBIAN_FRONTEND=noninteractive apt-get install -y -q python-all python-pip]
