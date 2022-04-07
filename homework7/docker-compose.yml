@@ -1,11 +1,13 @@
 version: '2'
 services:
   build:
+    container_name: mybuild
     build: build
     volumes:
       - webapps:/tmp/build
 
   tomcat:
+    container_name: mytomcat
     image: tomcat:latest
     ports:
       - "8080:8080"
