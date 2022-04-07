@@ -3,12 +3,12 @@ services:
   build:
     build: build
     volumes:
-      - ./repos:/tmp/repos
-      - ./webapps:/tmp/build
+      - /tmp/repos:/tmp/repos
+      - /tmp/webapps:/tmp/build
 
   tomcat:
     image: tomcat:latest
     ports:
       - "8080:8080"
     volumes:
-      - ./webapps:/usr/local/tomcat/webapps
+      - /tmp/webapps:/usr/local/tomcat/webapps

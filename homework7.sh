@@ -11,13 +11,14 @@ curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compo
 chmod +x /usr/local/bin/docker-compose
 
 # Prepare work dirs and downloan java sources from github
-mkdir repos
-mkdir webapps
-cd repos
+mkdir /tmp/repos
+mkdir /tmp/webapps
+cd /tmp/repos
 git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
-cd ..
 
 # Prepare docker configuration
+mkdir /tmp/work
+cd /tmp/work
 git clone https://github.com/utenkov-maxim/devops-pub.git
 cd devops-pub/homework7/
 
