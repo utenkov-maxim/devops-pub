@@ -1,16 +1,25 @@
-version: '2'
+---
+version: '3.8'
 services:
-  build:
-    build: build
-    volumes:
-      - webapps:/tmp/build
-
-  tomcat:
-    image: tomcat:latest
+  run:
+    build:
+      context: run/
     ports:
       - "8080:8080"
+    depends_on:
+      - bld
     volumes:
-      - webapps:/usr/local/tomcat/webapps
-
+      - type: volume
+        source: readyapp
+        target: /usr/local/tomcat/webapps/  
+  bld:
+    build:   
+      context: build/
+    volumes:
+      - type: volume
+        source: readyapp
+        target: /makeapp
 volumes:
-  webapps:
+  readyapp:
+networks:
+  default:
