@@ -1,6 +1,6 @@
 FROM maven
 
-COPY /tmp/repos /tmp/repos
+ADD /tmp/repos /tmp/repos
 
 WORKDIR /tmp/repos/boxfuse-sample-java-war-hello
 
