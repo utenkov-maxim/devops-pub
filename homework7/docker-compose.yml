@@ -1,0 +1,14 @@
+version: '2'
+services:
+  build:
+    build: build
+    volumes:
+      - ./repos:/tmp/repos
+      - ./webapps:/tmp/build
+
+  tomcat:
+    image: tomcat:latest
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./webapps:/usr/local/tomcat/webapps
