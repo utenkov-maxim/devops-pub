@@ -1,0 +1,25 @@
+---
+version: '3.8'
+services:
+  run:
+    build:
+      context: run/
+    ports:
+      - "8080:8080"
+    depends_on:
+      - bld
+    volumes:
+      - type: volume
+        source: readyapp
+        target: /usr/local/tomcat/webapps/  
+  bld:
+    build:   
+      context: build/
+    volumes:
+      - type: volume
+        source: readyapp
+        target: /makeapp
+volumes:
+  readyapp:
+networks:
+  default:
